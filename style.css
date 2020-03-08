@@ -100,7 +100,7 @@ h3 {
 
 .slider {
     margin-top: 94px;
-    padding: 0 0 40.5px 0;
+    padding: 0 0 41px 0;
     width: 100%;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
@@ -301,12 +301,11 @@ h3 {
 .about_gallery {
     display: flex;
     justify-content: space-between;
-
 }
 
 .person {
     width: 300px;
-    padding-bottom: 62.5px;
+    padding-bottom: 62px;
 }
 
 .person__name {
