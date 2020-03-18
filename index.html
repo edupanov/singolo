@@ -13,8 +13,8 @@
     <div class="container">
         <div class="header__inner">
             <h1 class="header__logo">singolo</h1>
-            <nav class="nav">
-                <a class="nav__link" href="#">home</a>
+            <nav class="nav" id="nav">
+                <a class="nav__link active" href="#">home</a>
                 <a class="nav__link" href="#services">services</a>
                 <a class="nav__link" href="#portfolio">portfolio</a>
                 <a class="nav__link" href="#aboutUs">about</a>
@@ -25,44 +25,50 @@
 </header>
 <main>
     <article class="slider">
-        <div class="container">
-            <div class="slider__inner">
-                <div class="slider__button">
-                    <a href="#">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="16.000000pt" height="20.000000pt" viewBox="0 0 16.000000 27.000000"
-                             preserveAspectRatio="xMidYMid meet">
+        <div class="container" id="slider">
+            <div class="slider__button" id="buttonLeft">
+                <a href="#">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="16.000000pt" height="20.000000pt" viewBox="0 0 16.000000 27.000000"
+                         preserveAspectRatio="xMidYMid meet">
 
-                            <g transform="translate(0.000000,27.000000) scale(0.100000,-0.100000)"
-                               id="prev" fill="#ca4549" stroke="none">
-                                <path d="M58 213 c-32 -32 -58 -68 -58 -79 0 -28 112 -137 136 -132 35 6 28
+                        <g transform="translate(0.000000,27.000000) scale(0.100000,-0.100000)"
+                           id="prev" fill="#ca4549" stroke="none">
+                            <path d="M58 213 c-32 -32 -58 -68 -58 -79 0 -28 112 -137 136 -132 35 6 28
 39 -20 87 l-46 47 45 44 c49 48 56 83 20 88 -13 2 -39 -17 -77 -55z"/>
-                            </g>
-                        </svg>
-                    </a>
-                </div>
-                <div class="phone-vertical">
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="slider__inner" id="carousel">
+                <div id="vertical" class="phone-vertical">
                     <img src="assets/img/phone_vertical1.png" alt="vertical">
                 </div>
-                <div class="phone-horizontal">
+                <div id="blackVertical" class="phone-vertical--black"></div>
+                <div id="horizontal" class="phone-horizontal">
                     <img src="assets/img/phone_horizontal1.png" alt="horizontal">
                 </div>
-                <div class="slider__button">
-                    <a href="#">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="16.000000pt" height="20.000000pt" viewBox="0 0 16.000000 27.000000"
-                             preserveAspectRatio="xMidYMid meet">
-                            <metadata>
-                                Created by potrace 1.15, written by Peter Selinger 2001-2017
-                            </metadata>
-                            <g transform="translate(0.000000,27.000000) scale(0.100000,-0.100000)"
-                               id="next" fill="#ca4549" stroke="none">
-                                <path d="M7 263 c-16 -15 -4 -42 38 -83 l45 -44 -46 -47 c-48 -48 -55 -81 -20
--87 24 -5 136 104 136 133 0 12 -25 45 -58 78 -54 53 -79 67 -95 50z"/>
-                            </g>
-                        </svg>
-                    </a>
+                <div id="blackHorizontal" class="phone-horizontal--black">
                 </div>
+                <div class="hoba">
+                    <img src="./assets/img/hoba.jpg" alt="hoba">
+                </div>
+            </div>
+            <div class="slider__button" id="buttonRight">
+                <a href="#">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="16.000000pt" height="20.000000pt" viewBox="0 0 16.000000 27.000000"
+                         preserveAspectRatio="xMidYMid meet">
+                        <metadata>
+                            Created by potrace 1.15, written by Peter Selinger 2001-2017
+                        </metadata>
+                        <g transform="translate(0.000000,27.000000) scale(0.100000,-0.100000)"
+                           id="next" fill="#ca4549" stroke="none">
+                            <path d="M7 263 c-16 -15 -4 -42 38 -83 l45 -44 -46 -47 c-48 -48 -55 -81 -20
+-87 24 -5 136 104 136 133 0 12 -25 45 -58 78 -54 53 -79 67 -95 50z"/>
+                        </g>
+                    </svg>
+                </a>
             </div>
         </div>
     </article>
@@ -71,7 +77,8 @@
             <div class="services__header">
                 <h3 class="services__title">Our Services</h3>
                 <div class="services__text">
-                    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis
+                    <p class="services__text--text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
+                        Duis
                         mollis, non
                         commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus,
                         tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
@@ -149,24 +156,24 @@
             <p class="portfolio__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia
                 odio sem nec elit.</p>
             <div class="portfolio_nav">
-                <button class="button__name">All</button>
-                <button class="button__name">Web Design</button>
-                <button class="button__name">Graphic Design</button>
-                <button class="button__name">Artwork</button>
+                <button class="button__name" id="sortAll">All</button>
+                <button class="button__name" id="sortWeb">Web Design</button>
+                <button class="button__name" id="sortGraf">Graphic Design</button>
+                <button class="button__name" id="sortArt">Artwork</button>
             </div>
-            <div class="portfolio__gallery">
-                <div class="portfolio__image"><img src="assets/img/1.png" alt="1"></div>
-                <div class="portfolio__image"><img src="assets/img/2.png" alt="2"></div>
-                <div class="portfolio__image"><img src="assets/img/3.png" alt="3"></div>
-                <div class="portfolio__image"><img src="assets/img/4.png" alt="4"></div>
-                <div class="portfolio__image"><img src="assets/img/5.png" alt="5"></div>
-                <div class="portfolio__image"><img src="assets/img/6.png" alt="6"></div>
-                <div class="portfolio__image"><img src="assets/img/7.png" alt="7"></div>
-                <div class="portfolio__image"><img src="assets/img/8.png" alt="8"></div>
-                <div class="portfolio__image"><img src="assets/img/9.png" alt="9"></div>
-                <div class="portfolio__image"><img src="assets/img/10.png" alt="10"></div>
-                <div class="portfolio__image"><img src="assets/img/11.png" alt="11"></div>
-                <div class="portfolio__image"><img src="assets/img/12.png" alt="12"></div>
+            <div class="portfolio__gallery" id="imageBorder">
+                <div class="portfolio__image" data-sort="12"><img src="assets/img/1.png" alt="1"></div>
+                <div class="portfolio__image" data-sort="11"><img src="assets/img/2.png" alt="2"></div>
+                <div class="portfolio__image" data-sort="10"><img src="assets/img/3.png" alt="3"></div>
+                <div class="portfolio__image" data-sort="9"><img src="assets/img/4.png" alt="4"></div>
+                <div class="portfolio__image" data-sort="8"><img src="assets/img/5.png" alt="5"></div>
+                <div class="portfolio__image" data-sort="7"><img src="assets/img/6.png" alt="6"></div>
+                <div class="portfolio__image" data-sort="6"><img src="assets/img/7.png" alt="7"></div>
+                <div class="portfolio__image" data-sort="5"><img src="assets/img/8.png" alt="8"></div>
+                <div class="portfolio__image" data-sort="4"><img src="assets/img/9.png" alt="9"></div>
+                <div class="portfolio__image" data-sort="3"><img src="assets/img/10.png" alt="10"></div>
+                <div class="portfolio__image" data-sort="2"><img src="assets/img/11.png" alt="11"></div>
+                <div class="portfolio__image" data-sort="1"><img src="assets/img/12.png" alt="12"></div>
             </div>
         </div>
     </section>
@@ -235,14 +242,24 @@
                 commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac
                 cursus commodo, tortor mauris condimentum nibh.</p>
             <div class="quote__contact">
-                <form class="form" action="#">
-                    <input type="text" class="required" pattern="[A-Za-zÀ-ßà-ÿ¨¸]+" name="name"
+                <form id="form" class="form" action="#">
+                    <input type="text" class="required" value="" pattern="[A-Za-zÀ-ßà-ÿ¨¸]+" name="name"
                            placeholder="Name (Required)" required/>
-                    <input type="email" class="required" name="email" placeholder="Email (Required)" required>
-                    <input type="text" name="subject" class="subject" placeholder="Subject">
-                    <textarea rows="13" placeholder="Describe your project in detail..."></textarea>
-                    <input type="submit" class="button__submit" value="Submit">
+                    <input type="email" class="required" name="email" value="" placeholder="Email (Required)"
+                           required>
+                    <input type="text" name="subject" class="subject" value="" placeholder="Subject">
+                    <textarea rows="12" name="message"
+                              placeholder="Describe your project in detail..."></textarea>
+                    <button class="btn" type="submit" id="formBtn">Submit</button>
                 </form>
+                <div class="modal" id="modal">
+                    <div class="modal__content">
+                        <p>The letter was sent</p>
+                        <p class="input__sub" id="outputSub"></p>
+                        <p class="input__desc" id="outputDesc"></p>
+                        <button type="button" id="modalBtn" class="close">OK</button>
+                    </div>
+                </div>
                 <div class="contact">
                     <h4 class="contact__title">Contact Information</h4>
                     <p class="contact__text">Quisque hendrerit purus dapibus, ornare nibh vitae, viver-ra nibh.
@@ -286,6 +303,6 @@
         </div>
     </div>
 </footer>
-
+<script src="script.js"></script>
 </body>
 </html>

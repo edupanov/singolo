@@ -93,36 +93,87 @@ h3 {
 }
 
 .nav__link:hover {
+    cursor: pointer;
     color: #f06c64;
 }
 
+.active {
+    cursor: pointer;
+    color: #f06c64;
+}
 /*-----Slider------*/
 
 .slider {
-    margin-top: 94px;
-    padding: 0 0 41px 0;
+    margin-top: 78px;
+    padding: 0 0 25px 0;
     width: 100%;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
 }
 
-.slider__inner {
+#slider {
+    overflow: hidden;
+}
+
+.slider .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 66px;
 }
 
-.phone-vertical {
+.slider__inner {
     position: relative;
-    bottom: 13px;
-    right: 7px;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 520px;
+    left: 0;
+}
+
+.phone-vertical {
+    cursor: pointer;
+    position: relative;
+    bottom: 12px;
+    left: 2px;
+    padding-right: 76px;
+}
+
+.phone-vertical--black {
+    display: none;
+    height: 333px;
+    width: 188.5px;
+    background-color: #000000;
+    position: absolute;
+    left: 15.5px;
+    bottom: 118px;
+    border-radius: 4px;
 }
 
 .phone-horizontal {
+    cursor: pointer;
     position: relative;
-    bottom: 13px;
-    left: 8px;
+    bottom: 12px;
+    right: 1px;
+}
+
+.phone-horizontal--black {
+    display: none;
+    transform: rotate(90deg);
+    height: 334px;
+    width: 188.5px;
+    background-color: #000000;
+    position: absolute;
+    left: 447px;
+    bottom: 120px;
+    border-radius: 4px;
+}
+
+.hoba {
+    position: relative;
+    left: 150px;
+    height: 520px;
+    width: 880px;
 }
 
 .slider__button {
@@ -141,11 +192,10 @@ h3 {
 .our-services {
     width: 100%;
     padding-top: 55px;
-    padding-bottom: 26.5px;
+    padding-bottom: 27px;
     background-color: #f2f2f2;
     border-bottom: 6px solid #ffffff;
 }
-
 
 .services__list {
     display: flex;
@@ -153,7 +203,7 @@ h3 {
 }
 
 .services__text {
-    margin: 12px 0 45px 0;
+    margin: 10px 0 47px 0;
     font-size: 18px;
     line-height: 30px;
     letter-spacing: -0.012em;
@@ -161,9 +211,14 @@ h3 {
     color: #767e9e;
 }
 
+.services__text--text {
+    overflow: hidden;
+
+}
+
 .services {
     display: flex;
-    margin-bottom: 32px;
+    padding-bottom: 32px;
 }
 
 .services:not(:nth-child(even)) {
@@ -201,7 +256,7 @@ h3 {
 
 .portfolio {
     background-color: #2d303a;
-    padding-bottom: 48px;
+    padding-bottom: 49px;
     border-bottom: 6px solid #323746;
 
 }
@@ -220,6 +275,7 @@ h3 {
     color: #767e9e;
     font-weight: 300;
     padding-bottom: 11px;
+    overflow: hidden;
 }
 
 .portfolio_nav {
@@ -239,8 +295,6 @@ h3 {
     font-weight: 400;
     letter-spacing: -0.0075em;
     transition: color 0.2s linear;
-
-
 }
 
 .button__name:hover,
@@ -269,6 +323,13 @@ h3 {
     height: 188px;
     width: 220px;
     margin-bottom: 19px;
+    cursor: pointer;
+}
+
+.image__border {
+    border: 5px solid #F06C64 ;
+    width: 220px;
+    height: 188px;
 }
 
 
@@ -316,6 +377,7 @@ h3 {
     letter-spacing: -0.008em;
     padding-top: 12px;
     padding-bottom: 10px;
+    overflow: hidden;
 }
 
 .person__text {
@@ -352,7 +414,6 @@ textarea {
     width: 620px;
     background-color: #d6564f;
     color: #ffffff;
-
     padding: 6px 0 0 15px;
     border: none;
     resize: none;
@@ -362,12 +423,20 @@ textarea {
 input::placeholder,
 textarea::placeholder {
     color: #e87675;
-    /*padding-left: 15px;*/
     font-family: "Lato";
     font-size: 12px;
     line-height: 22px;
     font-weight: 400;
     letter-spacing: -0.0085em;
+}
+
+.btn {
+    width: 620px;
+    height: 30px;
+    background-color: #d6564f;
+    color: #ffffff;
+    border-radius: 4px;
+    border: none;
 }
 
 .quote {
@@ -391,6 +460,7 @@ textarea::placeholder {
     font-weight: 300;
     text-align: justify;
     padding-bottom: 44px;
+    overflow: hidden;
 }
 
 .form {
@@ -400,7 +470,7 @@ textarea::placeholder {
 
 .quote__contact {
     display: flex;
-    padding-bottom: 3px;
+    padding-bottom: 9px;
 }
 
 .contact {
@@ -469,4 +539,81 @@ footer {
 .footer__social {
     position: relative;
     top: -4px
+}
+
+/*----Firefox style----*/
+
+@-moz-document url-prefix() {
+    .services {
+        padding-bottom: 30px;
+    }
+
+    .portfolio {
+        padding-bottom: 48px;
+    }
+
+    .portfolio__title {
+        padding: 69px 0 26px 0;
+    }
+
+    .button__name {
+        padding: 3px 8px;
+    }
+
+    .about__title {
+        padding: 68px 0 28px 0;
+    }
+
+    .person {
+        padding-bottom: 62px;
+    }
+
+    .person__text {
+        padding-bottom: 22px;
+    }
+
+    .contact__title {
+        padding-bottom: 4px;
+    }
+
+    .contact__text {
+        padding-bottom: 20px;
+    }
+
+    .button__submit {
+        margin: 0 20px 8px 0;
+    }
+}
+
+/*-----MODAL-----*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #848481;
+}
+
+.modal__content {
+    background-color: #fefefe;
+    margin:  20% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    width: 80%;
+    font-size:  14px;
+    color: #000000;
+}
+
+.close {
+    cursor: pointer;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
 }
