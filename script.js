@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('nav');
     const buttonLeft = document.getElementById("buttonLeft");
     const buttonRight = document.getElementById("buttonRight");
-    const carousel = document.getElementById("carousel");
+    const slides = document.querySelectorAll('.slide');
     const vertical = document.getElementById('vertical');
     const blackVertical = document.getElementById('blackVertical');
     const horizontal = document.getElementById('horizontal');
@@ -49,27 +49,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-
     // -----SLIDER-----
+    
+    let currentSlide = 0;
 
-    let right = 0;
-    let left = 0;
-
+    function nextSlide(){
+        goToSlide(currentSlide+1);
+    }
+    
+    function previousSlide(){
+        goToSlide(currentSlide-1);
+    }
+    
+    function goToSlide(n){
+        slides[currentSlide].className = 'slide';
+        currentSlide = (n+slides.length)%slides.length;
+        slides[currentSlide].className = 'slide showing';
+    }
+        
     buttonLeft.onclick = () => {
-        left = left - 880;
-        if (left < -880){
-            left = 0
-        }
-        carousel.style.left = left + 'px';
+        nextSlide();
     };
     buttonRight.onclick = () => {
-        right = right - 880;
-        if (right < -880){
-            right = 0
-        }
-        carousel.style.left = right + 'px';
+        previousSlide();
     };
 
+console.log(slides);
+
+    buttonLeft.addEventListener('click', (event) => {
+        buttonLeft.querySelectorAll('.slide').forEach(elem => elem.classList.remove('showing'));
+        event.target.classList.add('showing');
+    });
 
     // -----PORTFOLIO-----
 
