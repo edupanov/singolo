@@ -25,8 +25,8 @@
 </header>
 <main>
     <article class="slider">
-        <div class="container" id="slider">
-            <div class="slider__button" id="buttonLeft">
+        <div class="container">
+            <div class="slider__button left" id="buttonLeft">
                 <a href="#">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                          width="16.000000pt" height="20.000000pt" viewBox="0 0 16.000000 27.000000"
@@ -40,21 +40,24 @@
                     </svg>
                 </a>
             </div>
-            <div class="slider__inner" id="carousel">
-                <div id="vertical" class="phone-vertical">
-                    <img src="assets/img/phone_vertical1.png" alt="vertical">
+            <div class="slider__inner">
+                <div class="slide showing">
+                    <div id="vertical" class="phone-vertical">
+                        <img src="assets/img/phone_vertical1.png" alt="vertical">
+                    </div>
+                    <div id="blackVertical" class="phone-vertical--black"></div>
+                    <div id="horizontal" class="phone-horizontal">
+                        <img src="assets/img/phone_horizontal1.png" alt="horizontal">
+                    </div>
+                    <div id="blackHorizontal" class="phone-horizontal--black">
+                    </div>
                 </div>
-                <div id="blackVertical" class="phone-vertical--black"></div>
-                <div id="horizontal" class="phone-horizontal">
-                    <img src="assets/img/phone_horizontal1.png" alt="horizontal">
+                <div class="slide">                    
+                    <img class="slider2" src="./assets/img/slide2.png" alt="slider2">
                 </div>
-                <div id="blackHorizontal" class="phone-horizontal--black">
-                </div>
-                <div class="hoba">
-                    <img src="./assets/img/hoba.jpg" alt="hoba">
-                </div>
+ 
             </div>
-            <div class="slider__button" id="buttonRight">
+            <div class="slider__button right" id="buttonRight">
                 <a href="#">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                          width="16.000000pt" height="20.000000pt" viewBox="0 0 16.000000 27.000000"
@@ -115,8 +118,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="services__list">
                 <div class="services">
                     <img class="services__logo" src="assets/img/phone.png" alt="phone">
                     <div class="services__inner">
@@ -185,7 +186,7 @@
                 cursus commodo, tortor mauris condimentum nibh.</p>
             <div class="about_gallery">
                 <div class="person">
-                    <img src="assets/img/Adam%20Jensen.png" alt="Adam Jensen">
+                    <img class="person_img" src="assets/img/Adam%20Jensen.png" alt="Adam Jensen">
                     <h2 class="person__name">Adam Jensen</h2>
                     <p class="person__text">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec
                         rutrum tellus dolor id lorem.</p>
@@ -201,7 +202,7 @@
                     </div>
                 </div>
                 <div class="person">
-                    <img src="assets/img/Desmond%20Miles.png" alt="Desmond Miles">
+                    <img class="person_img" src="assets/img/Desmond%20Miles.png" alt="Desmond Miles">
                     <h2 class="person__name">Desmond Miles</h2>
                     <p class="person__text">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet,
                         viverra lacus ut, ultrices velit.</p>
@@ -217,7 +218,7 @@
                     </div>
                 </div>
                 <div class="person">
-                    <img src="assets/img/Scolara%20Visari.png" alt="Scolara Visari">
+                    <img class="person_img" src="assets/img/Scolara%20Visari.png" alt="Scolara Visari">
                     <h2 class="person__name">Scolara Visari</h2>
                     <p class="person__text">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et
                         consequat felis. Quisque condimentum.</p>
@@ -248,7 +249,7 @@
                     <input type="email" class="required" name="email" value="" placeholder="Email (Required)"
                            required>
                     <input type="text" name="subject" class="subject" value="" placeholder="Subject">
-                    <textarea rows="12" name="message"
+                    <textarea rows="13" name="message"
                               placeholder="Describe your project in detail..."></textarea>
                     <button class="btn" type="submit" id="formBtn">Submit</button>
                 </form>

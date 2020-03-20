@@ -23,6 +23,7 @@ h3 {
 
 .container {
     max-width: 940px;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -101,6 +102,7 @@ h3 {
     cursor: pointer;
     color: #f06c64;
 }
+
 /*-----Slider------*/
 
 .slider {
@@ -109,10 +111,6 @@ h3 {
     width: 100%;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
-}
-
-#slider {
-    overflow: hidden;
 }
 
 .slider .container {
@@ -124,63 +122,79 @@ h3 {
 
 .slider__inner {
     position: relative;
-    display: flex;
-    align-items: center;
     width: 800px;
     height: 520px;
-    left: 0;
+    overflow: hidden;
 }
 
-.phone-vertical {
-    cursor: pointer;
-    position: relative;
-    bottom: 12px;
+.slide {
+    position: absolute;
+    width: 800px;
+    height: auto;
+    left: 0;
+    opacity: 0;
+	-moz-transition: opacity 1s;
+	transition: opacity 0.5s;
+    z-index: 1;
+}
+
+.showing {
+    opacity: 1;
+    z-index: 2;
+}
+
+.phone-vertical img {
+    object-fit: contain;
+    position: absolute;
+    height: 483px;
+    top: 4px;
     left: 2px;
-    padding-right: 76px;
+    cursor: pointer;
 }
 
 .phone-vertical--black {
     display: none;
-    height: 333px;
-    width: 188.5px;
-    background-color: #000000;
     position: absolute;
-    left: 15.5px;
-    bottom: 118px;
+    height: 333px;
+    width: 189px;
+    background-color: #000000;
+    left: 16px;
+    top: 69px;
     border-radius: 4px;
 }
 
-.phone-horizontal {
+
+.phone-horizontal img {
+    object-fit: contain;
+
+    position: absolute;
+    height: 240px;
+    top: 125px;
+    left: 315px;
     cursor: pointer;
-    position: relative;
-    bottom: 12px;
-    right: 1px;
 }
 
 .phone-horizontal--black {
     display: none;
+    position: absolute;
     transform: rotate(90deg);
-    height: 334px;
+    height: 336px;
     width: 188.5px;
     background-color: #000000;
-    position: absolute;
-    left: 447px;
-    bottom: 120px;
     border-radius: 4px;
+    right: 163px;
+    top: 65px;
 }
 
-.hoba {
-    position: relative;
-    left: 150px;
-    height: 520px;
-    width: 880px;
-}
+ .left {
+     position: relative;
+bottom: 4px;}
 
-.slider__button {
-    position: relative;
-    top: -12px;
-    cursor: pointer;
-}
+ .right {
+     position: relative;
+     bottom: 3px; 
+     left: 2px;
+    }
 
 .slider__button:hover #prev,
 .slider__button:hover #next {
@@ -192,14 +206,15 @@ h3 {
 .our-services {
     width: 100%;
     padding-top: 55px;
-    padding-bottom: 27px;
+    padding-bottom: 26px;
     background-color: #f2f2f2;
     border-bottom: 6px solid #ffffff;
 }
 
 .services__list {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .services__text {
@@ -213,7 +228,6 @@ h3 {
 
 .services__text--text {
     overflow: hidden;
-
 }
 
 .services {
@@ -221,14 +235,10 @@ h3 {
     padding-bottom: 32px;
 }
 
-.services:not(:nth-child(even)) {
-    margin: 0 20px;
-}
-
 .services__logo {
     width: 60px;
     height: 60px;
-    margin-right: 20px;
+    margin-right: 24px;
 }
 
 .services__inner {
@@ -256,7 +266,7 @@ h3 {
 
 .portfolio {
     background-color: #2d303a;
-    padding-bottom: 49px;
+    padding-bottom: 48px;
     border-bottom: 6px solid #323746;
 
 }
@@ -361,11 +371,14 @@ h3 {
 
 .about_gallery {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .person {
+    position: relative;
     width: 300px;
+    /* width: 26vw; */
     padding-bottom: 62px;
 }
 
@@ -466,15 +479,19 @@ textarea::placeholder {
 .form {
     display: flex;
     flex-direction: column;
+    margin-right: 13px;
+    width: 66.6666%;
 }
 
 .quote__contact {
     display: flex;
-    padding-bottom: 9px;
+    flex-wrap: wrap;
+    padding-bottom: 27.5px;
 }
 
 .contact {
     position: relative;
+    width: 30%;
     top: -5px;
 }
 
@@ -616,4 +633,95 @@ footer {
     color: red;
     font-size: 18px;
     font-weight: bold;
+}
+
+/* -----Media----- */
+
+
+@media (max-width: 942px){
+    .container {
+        width: 95%;
+    }
+
+    /* -----Slider----- */
+
+    .slider {
+        height: 70vw;
+    }
+
+    .phone-vertical img {
+       width: 28vw;
+        left: 2%;
+        cursor: pointer;
+    }
+
+    .phone-vertical--black {
+        height: 333px;
+        width: 20.5vw;
+        left: 5%;
+        top: 69px;
+    }
+
+    .phone-horizontal img {
+        width: 52vw;
+        left: 33.4vw;
+    }
+
+    .slider2 {
+        position: relative;
+        width: 90vw;
+        right: 2vw;
+    }
+
+    .person {
+        width: 30vw;
+    } 
+
+    .person_img {
+        width: 30vw;
+    }
+
+    .person .social a img {
+        width: 3.6vw;
+    }
+
+    .form   {
+        margin-right: 0;
+    }
+
+   .contact {
+        width: 33.3333%;
+    }
+    
+    input {
+        width: 58vw;
+    }
+
+    textarea {
+        width: 58vw;
+    }
+
+    .btn {
+        width: 58vw;
+    }
+
+    .footer__social a img {
+        width: 3.6vw;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .slider {
+        height: 80vw;
+        
+    }
+    
+    .slider .container {
+        padding-top: 0;
+    }
+
+    .slider2 {
+        top: 10vw;
+    }
 }
