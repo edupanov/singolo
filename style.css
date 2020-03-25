@@ -30,7 +30,7 @@ h3 {
 /*-----Header------*/
 
 .header {
-    position: absolute;
+    position: fixed;
     background-color: #2d303a;
     top: 0;
     left: 0;
@@ -64,7 +64,11 @@ h3 {
     color: #f06c64;
 }
 
-/*Nav*/
+.burger__logo {
+    display: none;
+}
+
+/*-----Nav-----*/
 
 .nav {
     font-size: 12px;
@@ -77,19 +81,18 @@ h3 {
 .nav__link {
     position: relative;
     top: 5px;
-    margin-left: 26px;
+    margin-left: 28px;
     color: #ffffff;
     text-decoration: none;
     transition: color 0.2s linear;
 }
 
-.nav__link:not(:last-child)::after {
+li:not(:last-child)::after {
     content: ".";
     width: 5px;
     height: 5px;
     position: absolute;
     margin-left: 13px;
-    top: 0.09em;
     color: #494e62;
 }
 
@@ -101,6 +104,11 @@ h3 {
 .active {
     cursor: pointer;
     color: #f06c64;
+}
+
+ul {
+    display: flex;
+    list-style: none;
 }
 
 /*-----Slider------*/
@@ -133,8 +141,8 @@ h3 {
     height: auto;
     left: 0;
     opacity: 0;
-	-moz-transition: opacity 1s;
-	transition: opacity 0.5s;
+    -moz-transition: opacity 1s;
+    transition: opacity 0.5s;
     z-index: 1;
 }
 
@@ -186,15 +194,16 @@ h3 {
     top: 65px;
 }
 
- .left {
-     position: relative;
-bottom: 4px;}
+.left {
+    position: relative;
+    bottom: 10px;
+}
 
- .right {
-     position: relative;
-     bottom: 3px; 
-     left: 2px;
-    }
+.right {
+    position: relative;
+    bottom: 10px;
+    left: 2px;
+}
 
 .slider__button:hover #prev,
 .slider__button:hover #next {
@@ -337,7 +346,7 @@ bottom: 4px;}
 }
 
 .image__border {
-    border: 5px solid #F06C64 ;
+    border: 5px solid #F06C64;
     width: 220px;
     height: 188px;
 }
@@ -618,11 +627,11 @@ footer {
 
 .modal__content {
     background-color: #fefefe;
-    margin:  20% auto;
+    margin: 20% auto;
     padding: 20px;
     border: 1px solid #888888;
     width: 80%;
-    font-size:  14px;
+    font-size: 14px;
     color: #000000;
 }
 
@@ -638,33 +647,40 @@ footer {
 /* -----Media----- */
 
 
-@media (max-width: 942px){
+@media (max-width: 940px) {
     .container {
         width: 95%;
     }
 
     /* -----Slider----- */
-
     .slider {
         height: 70vw;
     }
 
     .phone-vertical img {
-       width: 28vw;
+        width: 28vw;
+        height: auto;
         left: 2%;
-        cursor: pointer;
-    }
-
-    .phone-vertical--black {
-        height: 333px;
-        width: 20.5vw;
-        left: 5%;
-        top: 69px;
     }
 
     .phone-horizontal img {
         width: 52vw;
         left: 33.4vw;
+    }
+
+    .phone-vertical--black {
+        height: 40vw;
+        width: 22vw;
+        left: 3.4vw;
+        top: 69px;
+    }
+
+    .phone-horizontal--black {
+        transform: rotate(90deg);
+        height: 36vw;
+        width: 21vw;
+        top: 7vw;
+        left: 47.1vw;
     }
 
     .slider2 {
@@ -675,7 +691,7 @@ footer {
 
     .person {
         width: 30vw;
-    } 
+    }
 
     .person_img {
         width: 30vw;
@@ -685,14 +701,14 @@ footer {
         width: 3.6vw;
     }
 
-    .form   {
+    .form {
         margin-right: 0;
     }
 
-   .contact {
+    .contact {
         width: 33.3333%;
     }
-    
+
     input {
         width: 58vw;
     }
@@ -708,20 +724,281 @@ footer {
     .footer__social a img {
         width: 3.6vw;
     }
-    
+
 }
 
 @media (max-width: 768px) {
+
+    .container {
+        width: 89%;
+    }
+
     .slider {
         height: 80vw;
-        
+
     }
-    
+
     .slider .container {
         padding-top: 0;
     }
 
+    .slide {
+        top: 6%
+    }
+
+    .phone-vertical img {
+        height: 52vw;
+        left: 2%;
+        top: 7vw
+    }
+
+    .phone-horizontal img {
+        height: 40vw;
+        top: 14vw;
+        left: 30vw;
+    }
+
+    .phone-vertical--black {
+        height: 36vw;
+        width: 21vw;
+        left: 4.5vw;
+        top: 106px;
+    }
+
+    .phone-horizontal--black {
+        transform: rotate(90deg);
+        height: 36vw;
+        width: 21vw;
+        top: 14.5vw;
+        left: 44vw;
+    }
+
     .slider2 {
-        top: 10vw;
+        top: 5vw;
+    }
+
+    .person {
+        width: 26vw;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .burger {
+        position: absolute;
+        bottom: 3vw;
+        display: block;
+        cursor: pointer;
+        z-index: 8;
+    }
+
+    .burger i {
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 5px auto;
+        background: #fff
+    }
+
+    .burger__show {
+        display: none;
+        position: fixed;
+        z-index: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .burger__logo {
+        display: block;
+        position: relative;
+        bottom: 22vw;
+        left: 20vw;
+        font-size: 25px;
+        line-height: 6px;
+        letter-spacing: -0.03em;
+        color: #ffffff;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .burger__logo:after {
+        content: "*";
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        color: #f06c64;
+    }
+
+    .menu {
+        display: none;
+        background-color: #2d303a;
+        padding: 30% 20px;
+        height: 100%;
+        width: 80%;
+        font-size: 14px;
+        color: #000000;
+        z-index: 4;
+
+    }
+
+    .header__inner {
+        padding: 5vw;
+    }
+
+    .header__logo {
+        margin: 0 auto;
+    }
+
+    .menu li {
+        padding-top: 14vw;
+        padding-left: 15vw;
+    }
+
+    li:not(:last-child)::after {
+        content: none;
+    }
+
+    .nav {
+        order: -1;
+        background-color: #2d303a;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .slider {
+        margin-top: 14vw;
+    }
+
+    .slide {
+        top: 6%
+    }
+
+    .phone-vertical img {
+        height: 48vw;
+        left: 2%;
+        top: 10vw
+    }
+
+    .phone-horizontal img {
+        width: 48vw;
+        top: 18vw;
+        left: 30vw;
+    }
+
+    .phone-vertical--black {
+        height: 33.5vw;
+        width: 19vw;
+        left: 6vw;
+        top: 99px;
+    }
+
+    .phone-horizontal--black {
+        transform: rotate(90deg);
+        height: 34vw;
+        width: 19vw;
+        top: 19.6vw;
+        left: 43vw;
+    }
+
+    .slider {
+        margin-top: 13vw;
+    }
+
+    .rotate {
+        transform: rotate(90deg);
+    }
+
+    .slider__button {
+        bottom: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .phone-vertical--black {
+        height: 34vw;
+        width: 19vw;
+        top: 16vw;
+        left: 7.5vw;
+    }
+
+    .phone-horizontal--black {
+        transform: rotate(90deg);
+        height: 34vw;
+        width: 19vw;
+        top: 19.8vw;
+        left: 43vw;
+    }
+
+    .slider__button {
+        bottom: 24vw;
+    }
+
+    .portfolio__image {
+        width: 48%;
+        height: auto;
+    }
+
+    .portfolio__image img {
+        width: 100%;
+    }
+
+    .about_gallery {
+        display: block;
+    }
+
+    .person {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+
+    .person_img {
+        width: 100%;
+    }
+
+    .person .social a img {
+        width: 8vw;
+    }
+
+    .quote__contact {
+        display: block;
+    }
+
+    .form {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .contact {
+        width: 100%;
+    }
+
+    .footer {
+        justify-content: center;
+    }
+
+    .footer p {
+        display: none;
+    }
+
+    .footer__social a img {
+        width: 8vw;
     }
 }

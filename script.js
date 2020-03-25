@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    'use strict';
 
     const nav = document.getElementById('nav');
+    const menu = document.getElementById("menu");
+    const burger = document.getElementById("burger");
+    const burgerShow = document.getElementById('burgerShow');
     const buttonLeft = document.getElementById("buttonLeft");
     const buttonRight = document.getElementById("buttonRight");
     const slides = document.querySelectorAll('.slide');
     const vertical = document.getElementById('vertical');
     const blackVertical = document.getElementById('blackVertical');
     const horizontal = document.getElementById('horizontal');
-    const blackHorizontal = document.getElementById('blackHorizontal'); const sortAll = document.querySelector('button#sortAll');
+    const blackHorizontal = document.getElementById('blackHorizontal');
+    const sortAll = document.querySelector('button#sortAll');
     const sortWeb = document.querySelector('button#sortWeb');
     const sortGraf = document.querySelector('button#sortGraf');
     const sortArt = document.querySelector('button#sortArt');
@@ -21,14 +24,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputSub = document.getElementById('outputSub');
     const outputDesc = document.getElementById('outputDesc');
 
+    console.log(imgGal);
 
 
     // -----NAV-----
 
-    nav.addEventListener('click', (event) => {
-        nav.querySelectorAll('a').forEach(elem => elem.classList.remove('active'));
+    menu.addEventListener('click', (event) => {
+        menu.querySelectorAll('a').forEach(elem => elem.classList.remove('active'));
         event.target.classList.add('active');
     });
+
+    // -----BURGER-----
+
+    nav.onclick = function () {
+        open()
+    };
+
+    burger.addEventListener('click', () => {
+        burgerShow.style.display = 'block';
+    });
+
+    function open() {
+        menu.classList.toggle('show');
+        burger.classList.toggle('rotate');
+    }
 
     // -----BLACK WINDOW-----
 
@@ -37,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     blackVertical.addEventListener('click', () => {
-           blackVertical.style.display = 'none';
-      });
+        blackVertical.style.display = 'none';
+    });
 
     horizontal.addEventListener('click', () => {
         blackHorizontal.style.display = 'block'
@@ -50,23 +69,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // -----SLIDER-----
-    
+
     let currentSlide = 0;
 
-    function nextSlide(){
-        goToSlide(currentSlide+1);
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
     }
-    
-    function previousSlide(){
-        goToSlide(currentSlide-1);
+
+    function previousSlide() {
+        goToSlide(currentSlide - 1);
     }
-    
-    function goToSlide(n){
+
+    function goToSlide(n) {
         slides[currentSlide].className = 'slide';
-        currentSlide = (n+slides.length)%slides.length;
+        currentSlide = (n + slides.length) % slides.length;
         slides[currentSlide].className = 'slide showing';
     }
-        
+
     buttonLeft.onclick = () => {
         nextSlide();
     };
@@ -74,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         previousSlide();
     };
 
-console.log(slides);
+    console.log(slides);
 
     buttonLeft.addEventListener('click', (event) => {
         buttonLeft.querySelectorAll('.slide').forEach(elem => elem.classList.remove('showing'));
@@ -84,47 +103,47 @@ console.log(slides);
     // -----PORTFOLIO-----
 
     sortAll.onclick = () => {
-        shuffle('style');
+        shuffle();
     };
     sortWeb.onclick = () => {
-        sortList('data-sort');
+        shuffle();
     };
     sortGraf.onclick = () => {
-        sortListDesc('data-sort');
+        shuffle();
     };
     sortArt.onclick = () => {
-        sortList('data-sort');
+        shuffle();
     };
 
-    function sortList(sort) {
-        let imgGal = document.querySelector('.portfolio__gallery');
-        for (let i = 0; i < imgGal.children.length - 1; i++) {
-            for (let j = i; j < imgGal.children.length; j++) {
-                if (+imgGal.children[i].getAttribute(sort) > +imgGal.children[j].getAttribute(sort)) {
-                    let replacedNode = imgGal.replaceChild(imgGal.children[j], imgGal.children[i]);
-                    insertAfter(replacedNode, imgGal.children[i]);
-                }
-            }
-        }
-    }
+    // function sortList(sort) {
+    //     let imgGal = document.querySelector('.portfolio__gallery');
+    //     for (let i = 0; i < imgGal.children.length - 1; i++) {
+    //         for (let j = i; j < imgGal.children.length; j++) {
+    //             if (+imgGal.children[i].getAttribute(sort) > +imgGal.children[j].getAttribute(sort)) {
+    //                 let replacedNode = imgGal.replaceChild(imgGal.children[j], imgGal.children[i]);
+    //                 insertAfter(replacedNode, imgGal.children[i]);
+    //             }
+    //         }
+    //     }
+    // }
+    //
+    // function sortListDesc(sort) {
+    //     let imgGal = document.querySelector('.portfolio__gallery');
+    //     for (let i = 0; i < imgGal.children.length - 1; i++) {
+    //         for (let j = i; j < imgGal.children.length; j++) {
+    //             if (+imgGal.children[i].getAttribute(sort) < +imgGal.children[j].getAttribute(sort)) {
+    //                 let replacedNode = imgGal.replaceChild(imgGal.children[j], imgGal.children[i]);
+    //                 insertAfter(replacedNode, imgGal.children[i]);
+    //             }
+    //         }
+    //     }
+    // }
+    //
+    // function insertAfter(elem, refElem) {
+    //     return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    // }
 
-    function sortListDesc(sort) {
-        let imgGal = document.querySelector('.portfolio__gallery');
-        for (let i = 0; i < imgGal.children.length - 1; i++) {
-            for (let j = i; j < imgGal.children.length; j++) {
-                if (+imgGal.children[i].getAttribute(sort) < +imgGal.children[j].getAttribute(sort)) {
-                    let replacedNode = imgGal.replaceChild(imgGal.children[j], imgGal.children[i]);
-                    insertAfter(replacedNode, imgGal.children[i]);
-                }
-            }
-        }
-    }
-
-    function insertAfter(elem, refElem) {
-        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
-    }
-
-    function shuffle(){
+    function shuffle() {
         imgGal.forEach(element => {
             element.style.order = Math.floor(1 + Math.random() * 12);
         })
@@ -140,23 +159,23 @@ console.log(slides);
 
     const dataForm = {};
 
-    form.addEventListener ('submit', (event) => {
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         [...form.elements].forEach((elem) => {
             if ((elem.tagName === 'INPUT') ||
-                elem.tagName === 'TEXTAREA') {
+                (elem.tagName === 'TEXTAREA')) {
                 dataForm [elem.name] = elem.value;
             }
 
             if (dataForm.subject === 'singolo' || dataForm.subject !== "") {
-                outputSub.textContent ='Subject: ' + dataForm.subject;
+                outputSub.textContent = 'Subject: ' + dataForm.subject;
             } else {
                 outputSub.textContent = "No subject";
             }
 
             if (dataForm.message === 'Portfolio project' || dataForm.message !== "") {
-                outputDesc.textContent ='Description: ' + dataForm.message;
+                outputDesc.textContent = 'Description: ' + dataForm.message;
             } else {
                 outputDesc.textContent = "No description";
             }
@@ -184,6 +203,7 @@ console.log(slides);
     }
 
 });
+
 
 
 

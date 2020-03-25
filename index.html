@@ -12,13 +12,23 @@
 <header class="header">
     <div class="container">
         <div class="header__inner">
-            <h1 class="header__logo">singolo</h1>
+            <h1 class="header__logo" id="">singolo</h1>
             <nav class="nav" id="nav">
-                <a class="nav__link active" href="#">home</a>
-                <a class="nav__link" href="#services">services</a>
-                <a class="nav__link" href="#portfolio">portfolio</a>
-                <a class="nav__link" href="#aboutUs">about</a>
-                <a class="nav__link" href="#quote">contact</a>
+                <span id="burger" class="burger">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+                <div class="burger__show" id="burgerShow">
+                    <ul class="menu" id="menu">
+                        <h1 class="burger__logo">singolo</h1>
+                        <li><a class="nav__link active" href="#">home</a></li>
+                        <li><a class="nav__link" href="#services">services</a></li>
+                        <li><a class="nav__link" href="#portfolio">portfolio</a></li>
+                        <li><a class="nav__link" href="#aboutUs">about</a></li>
+                        <li><a class="nav__link" href="#quote">contact</a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </div>
@@ -52,10 +62,10 @@
                     <div id="blackHorizontal" class="phone-horizontal--black">
                     </div>
                 </div>
-                <div class="slide">                    
+                <div class="slide">
                     <img class="slider2" src="./assets/img/slide2.png" alt="slider2">
                 </div>
- 
+
             </div>
             <div class="slider__button right" id="buttonRight">
                 <a href="#">
