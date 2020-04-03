@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function clickHandler() {
         let target = event.target;
-      
+
         if (target.classList.contains('nav__link')) {
-          event.preventDefault();
-          target.classList.add('active');
+            event.preventDefault();
+            target.classList.add('active');
         }
-      }
+    }
 
     // -----BURGER MENU-----
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-        // -----PHONE ON/OFF-----
+    // -----PHONE ON/OFF-----
 
     vertical.addEventListener('click', () => {
         blackVertical.style.display = 'block'
@@ -132,10 +132,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    iBorder.addEventListener('click', (event) => {
-        iBorder.querySelectorAll('img').forEach(elem => elem.classList.remove('image__border'));
-        event.target.classList.add('image__border');
-    });
+    iBorder.querySelectorAll('img').forEach(label =>
+        label.addEventListener('click', (event) => {
+            iBorder.querySelectorAll('img').forEach(elem => elem.classList.remove('image__border'));
+            event.target.classList.toggle('image__border');
+        }));
+
 
     // -----Form-----
 
@@ -161,13 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputDesc.textContent = "No description";
             }
         });
-        
         form.reset();
     });
 
-
     formBtn.addEventListener('click', () => {
-        modal.style.display = 'block';
+        if(document.getElementsByName('email')[0].value === ""
+            && document.getElementsByName('name')[0].value === ""
+        ) {
+            alert("Пожалуйста заполните, 'Name' и 'Email'");
+        } else { modal.style.display = 'block';}
     });
 
     modalBtn.addEventListener('click', () => {
