@@ -132,11 +132,27 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    iBorder.querySelectorAll('img').forEach(label =>
-        label.addEventListener('click', (event) => {
-            iBorder.querySelectorAll('img').forEach(elem => elem.classList.remove('image__border'));
-            event.target.classList.toggle('image__border');
-        }));
+    let selected;
+
+    iBorder.onclick = (event) => {
+        let target = event.target;
+
+        while (target !== this) {
+            if (target.tagName === 'IMG') {
+                highlight(target);
+                return;
+            }
+            target = target.parentNode;
+        }
+    };
+
+    function highlight(node) {
+        if (selected) {
+            selected.classList.toggle('image__border');
+        }
+        selected = node;
+        selected.classList.remove('image__border');
+    }
 
 
     // -----Form-----
@@ -168,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formBtn.addEventListener('click', () => {
         if(document.getElementsByName('email')[0].value === ""
-            && document.getElementsByName('name')[0].value === ""
+            || document.getElementsByName('name')[0].value === ""
         ) {
             alert("Пожалуйста заполните, 'Name' и 'Email'");
         } else { modal.style.display = 'block';}
