@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputDesc = document.getElementById('outputDesc');
     const anchors = document.querySelectorAll('a[href*="#"]');
 
+    console.log(imgGal);
+
     // -----NAV-----
 
     for (let anchor of anchors) {
@@ -132,30 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    let selected;
-
     iBorder.onclick = (event) => {
-        let target = event.target;
-
-        while (target !== this) {
-            if (target.tagName === 'IMG') {
-                highlight(target);
-                return;
+        if(event.target.tagName == 'IMG') {
+            const elementWithClassName = document.getElementsByClassName("image__border")[0];
+            if(elementWithClassName && elementWithClassName != event.target) {
+                elementWithClassName.classList.remove('image__border');
             }
-            target = target.parentNode;
+            event.target.classList.toggle('image__border');
         }
-    };
-
-    function highlight(node) {
-        if (selected) {
-            selected.classList.toggle('image__border');
-        }
-        selected = node;
-        selected.classList.remove('image__border');
     }
 
-
-    // -----Form-----
+     // -----Form-----
 
     const dataForm = {};
 
